@@ -51,7 +51,7 @@ For the main Encoder & Decoder blocks, I have emperically found the following ne
 
 Here the FeatureX() functions are convolutional feature extractors and generally it follows a structure similar to ConvNextV2, except that there are two inputs, one for a latent backbone and another to parse in the original version of the input.
 The idea here is to setup the initilization in such a way that it begins as a pass through network and basically works from the start. 
-However the tokenizer is a [residual tokenizer](https://arxiv.org/pdf/2210.13438), so the number of tokens transmited per latent can be adjusted at runtime to balance quality vs effort. So we can apply Dropout to randomly shorten the amount of tokens, therfore the network is encouraged to try and compress/decompress everything into as few tokens as possible.
+However the tokenizer is a [residual tokenizer](https://arxiv.org/pdf/2210.13438), so the number of tokens transmited per latent can be adjusted at runtime to balance quality vs effort. So we can apply Dropout to randomly reduce the amount of tokens, therfore the network is encouraged to try and compress/decompress everything into as few tokens as possible.
 In this way, the more we train, the more compression we can gain but it should always work if we simple allow more tokens to be used. I thought this was a good compromise for my compute budget.
 
 Unfortunatley I had some PC trouble while training the network and the main training file (the "glue") was lost but I could still recover the modules which is arguably the most important code and it is uploaded inside this repository. However as a result I didn't feel it worth while to continue the project back in 2024 but now I want to look into it again.
