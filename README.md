@@ -10,10 +10,10 @@ So first I tried to reproduce the APNet results to get a baseline:
 [Listen to the APNet test Audio](https://github.com/user-attachments/files/28866138/APNet-test.wav)
 
 
-I only got it to about 60k steps, but after listening to this audio you might agree with me that it would need way more to produce inteligible results and I didn't have the compute/time for it so I jumped straight into the implementation of my own method.
+I only got to about 60k steps, but after listening you might agree that it would take way more to produce inteligible results, and I didn't have the compute/time so I jumped straight into the implementation of my own method.
 
 ## Conventional Approach
-In 2025, [later research](https://arxiv.org/pdf/2509.18806) had confirmed my suspicions about the split real network approach of APNet:
+In 2025, [later research](https://arxiv.org/pdf/2509.18806) had confirmed my suspicions about the split network approach of APNet:
 <img width="488" height="296" alt="image" src="https://github.com/user-attachments/assets/b92f54bc-3fbb-46bd-8177-3c9fcbe2229d" />
 
 It was revealed that the split approach could still work well enough when reporoducing a single speaker (such as on the LJSpeech dataset), but the vocoder broke down when trying to generalize to many speakers (over 2000 speakers in the LibriTTS dataset).
