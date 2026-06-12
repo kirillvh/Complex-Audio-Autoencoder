@@ -36,12 +36,8 @@ Digging into the research, I found several papers on complex valued neural netwo
 It seemed that PyTorch already handles most of the processing so only the activation functionss would need to be changed as well as manually handling real and imaginary components in certain situations.
 
 For the main Encoder & Decoder blocks, I have emperically found the following network to produce good enough results within my limited compute (A single Nvidia P40, which died somewhere in 2025 :[ )
-        #====================================================================================================================
-        # input  --> feature1()----->|       |
-        #                            | cat() | -->norm1 --> pwconv1() --> act --> grn --> pwconv2()
-        # latent --> feature2()----->|-------|                                              |
-        #    |----------------------------------------------------------------------------- + --feature3()-->norm2--> latent 
-        #====================================================================================================================
+<img width="608" height="85" alt="image" src="https://github.com/user-attachments/assets/c482376f-e179-4886-b957-1fd5b763d028" />
+
 Here the FeatureX() functions are convolutional feature extractors and generally it follows a structure similar to ConvNextV2, except that there are two inputs, one for a latent backbone and another to parse in the original version of the input.
 The idea here is to setup the initilization in such a way that it begins as a pass through network and basically works from the start. 
 However the tokenizer is a residual tokenizer, so the number of tokens transmited per latent can be adjusted at runtime to balance quality vs effort. So we can apply Dropout to randomly shorten the amount of tokens, therfore the network is encouraged to try and compress/decompress everything into as few tokens as possible.
