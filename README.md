@@ -41,7 +41,7 @@ Digging into the research, I found several papers on complex valued neural netwo
 
 [Phase-driven Domain Generalizable Learning for Nonstationary Time Series](https://arxiv.org/abs/2402.05960)
 
-[Analysis of Deep Complex-Valued Convolutional Neural Networks for MRI Reconstruction]([https://arxiv.org/abs/2402.05960](https://www.researchgate.net/publication/340475482_Analysis_of_Deep_Complex-Valued_Convolutional_Neural_Networks_for_MRI_Reconstruction)
+[Analysis of Deep Complex-Valued Convolutional Neural Networks for MRI Reconstruction](https://www.researchgate.net/publication/340475482_Analysis_of_Deep_Complex-Valued_Convolutional_Neural_Networks_for_MRI_Reconstruction)
 
 It seemed that PyTorch already handles most of the processing so only the activation functionss would need to be changed as well as manually handling real and imaginary components in certain situations.
 
@@ -68,6 +68,7 @@ The problem is that I don't have the exact quantizer settings I used, but there 
 Here ResidualLFQ is from Lucid Rain's [Vector-Quantization repository](https://github.com/lucidrains/vector-quantize-pytorch). The exact values used to produce the results below were probably a bit different, but I think I tried to target similar minimum & maximum bit rates.
 
 There are also a few extra tricks I used to improve the result such as an [alias-free design](https://arxiv.org/abs/2106.12423) which basically boils down to upsamling before the activation function, then low pass filtering and downsampling after if to prevent the optimizer from learning some unbeneficial details related to activation function non-linearities (although I should mention that these alias free methods also blew up my compute needs and forced me to use smaller batch sizes, so im not sure about the overall benefit).
+
 Also, the full setup fetured a Generative-Adverserial network but the implmentation was using a [SAN](https://arxiv.org/abs/2301.12811) which is an enhanced verion of GAN.
 
 ## Result
