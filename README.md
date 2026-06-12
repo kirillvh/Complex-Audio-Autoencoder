@@ -23,7 +23,8 @@ Several modifications were proposed to enforce aligment between the real and ima
 
 ## Proposed Approach
 
-<img width="455" height="722" alt="image" src="https://github.com/user-attachments/assets/e2bd1f21-c6ec-4d94-8a47-cbf08ac11ccf" />
+<img width="433" height="755" alt="image" src="https://github.com/user-attachments/assets/bb9ab340-14d7-4787-8d0f-7ceb0b7e4ee0" />
+
 
 
 Basically we just need a decoder that converts an internal representation such as Phoneme's when working with a TTS such as [StyleTTS2](https://github.com/yl4579/styletts2) or the internal latent space of a multimodal LLM, into tokens (which enables Generative AI) that can be detokenized to produce an input for the decoder.
