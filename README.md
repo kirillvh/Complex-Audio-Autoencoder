@@ -15,6 +15,7 @@ I only got it to about 60k steps, but after listening to this audio you might ag
 ## Conventional Approach
 It turns out that [later research](https://arxiv.org/pdf/2509.18806) in 2025 had confirmed my suspicions about the split real network approach of APNet:
 <img width="488" height="296" alt="image" src="https://github.com/user-attachments/assets/b92f54bc-3fbb-46bd-8177-3c9fcbe2229d" />
+
 It turns out that the split approach could still work well enough when reporoducing a single speaker (such as on the LJSpeech dataset), but the vocoder broke down when trying to generalize to many speakers (over 2000 speakers in the LibriTTS dataset).
 
 Interestingly Vocos didn't suffer from this problem, the researchers explained that this is because it used a unified network before splitting the data into Magnitude and Phase, and that the split network approach had likely caused a mismatch between these two components.
