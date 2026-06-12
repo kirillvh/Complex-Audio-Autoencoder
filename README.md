@@ -54,7 +54,7 @@ The idea here is to setup the initilization in such a way that it begins as a pa
 However the tokenizer is a [residual tokenizer](https://arxiv.org/pdf/2210.13438), so the number of tokens transmited per latent can be adjusted at runtime to balance quality vs effort. So we can apply Dropout to randomly shorten the amount of tokens, therfore the network is encouraged to try and compress/decompress everything into as few tokens as possible.
 In this way, the more we train, the more compression we can gain but it should always work if we simple allow more tokens to be used. I thought this was a good compromise for my compute budget.
 
-Unfortunatley I had some PC trouble while training the network and the main training file (the "glue") was lost but I could still recover the modules which is arguably the most important code and it is uploaded inside this repository. However as a result I had lost interest in the project back in 2024 and moved on but now I want to look into it again.
+Unfortunatley I had some PC trouble while training the network and the main training file (the "glue") was lost but I could still recover the modules which is arguably the most important code and it is uploaded inside this repository. However as a result I didn't feel it worth while to continue the project back in 2024 but now I want to look into it again.
 The problem is that I don't have the exact quantizer settings I used, but there is one related file with a likely candidate:
 ```
     quantizer = ResidualLFQ(
@@ -71,7 +71,7 @@ Here ResidualLFQ is from Lucid Rain's [Vector-Quantization repository](https://g
 
 There are also a few extra tricks I used to improve the result such as an [alias-free design](https://arxiv.org/abs/2106.12423) which basically boils down to upsamling before the activation function, then low pass filtering and downsampling after if to prevent the optimizer from learning some unbeneficial details related to activation function non-linearities (although I should mention that these alias free methods also blew up my compute needs and forced me to use smaller batch sizes, so im not sure about the overall benefit).
 
-Also, the full setup fetured a Generative-Adverserial network but the implmentation was using a [SAN](https://arxiv.org/abs/2301.12811) which is an enhanced verion of GAN.
+Also, the full setup fetured a Generative-Adverserial network but the implmentation used a [SAN](https://arxiv.org/abs/2301.12811) which is an enhanced verion of GAN.
 
 ## Result
 [Listen to the Audio Result](https://github.com/user-attachments/files/28869124/Result.wav)
