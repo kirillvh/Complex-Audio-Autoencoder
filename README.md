@@ -19,6 +19,7 @@ It turns out that the split approach could still work well enough when reporoduc
 
 Interestingly Vocos didn't suffer from this problem, the researchers explained that this is because it used a unified network before splitting the data into Magnitude and Phase, and that the split network approach had likely caused a mismatch between these two components.
 <img width="737" height="337" alt="image" src="https://github.com/user-attachments/assets/c3617b61-4f38-4e60-87cb-3a921e690f26" />
+
 Several modifications were proposed to enforce aligment between the real and imaginary outputs of APNet while Vocos almost produces the right result with a much simpler approach. So I thought the Vocos approach is better but might be further improved with a complex valued network.
 
 ## Proposed Approach
