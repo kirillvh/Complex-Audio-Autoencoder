@@ -56,6 +56,7 @@ In this way, the more we train, the more compression we can gain but it should a
 
 Unfortunatley I had some PC trouble while training the network and the main training file (the "glue") was lost but I could still recover the modules which is arguably the most important code and it is uploaded inside this repository. However as a result I had lost interest in the project back in 2024 and moved on but now I want to look into it again.
 The problem is that I don't have the exact quantizer settings I used, but there is one related file with a likely candidate:
+```
     quantizer = ResidualLFQ(
     dim = 512,
     codebook_size = 256,
@@ -64,6 +65,7 @@ The problem is that I don't have the exact quantizer settings I used, but there 
     quantize_dropout_cutoff_index = 2,
     quantize_dropout_multiple_of = 2,
     ).to(device)
+```
 
 Here ResidualLFQ is from Lucid Rain's [Vector-Quantization repository](https://github.com/lucidrains/vector-quantize-pytorch). The exact values used to produce the results below were probably a bit different, but I think I tried to target similar minimum & maximum bit rates.
 
