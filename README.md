@@ -7,6 +7,8 @@ Since the end goal was to input a complex number sequence into ISTFT to generate
 But it turned out that complex valued networks were still a topic of research and support for it was just starting to become stable, so I understood why previous researchers were forced to split it into seperate real valued networks and realized that due to the recent maturation of the technology, now would be a good time to try and implement such a thing.
 So first I tried to reproduce the APNet results to get a baseline:
 [APNet-test.wav](https://github.com/user-attachments/files/28866138/APNet-test.wav)
+[![APNet-test](https://shields.io)](https://github.com/user-attachments/files/28866138/APNet-test.wav)
+
 I only got it to about 60k steps, but after listening to this audio you might agree with me that it would need way more to produce inteligible results and I didn't have the compute/time for it so I jumped straight into the implementation of my own method.
 
 ## Conventional Approach
