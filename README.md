@@ -32,10 +32,12 @@ But it should be a complex valued network so that it natively produces aligned r
 
 ## Implementation
 <img width="756" height="574" alt="image" src="https://github.com/user-attachments/assets/8492ec1d-70ad-4b81-8dcb-b9eee342e652" />
+
 Digging into the research, I found several papers on complex valued neural networks: 
-["DEEP COMPLEX NETWORKS"]([https://arxiv.org/abs/2402.05960](https://arxiv.org/pdf/1705.09792v1)
-["Phase-driven Domain Generalizable Learning for Nonstationary Time Series"](https://arxiv.org/abs/2402.05960)
-["Analysis of Deep Complex-Valued Convolutional Neural Networks for MRI Reconstruction"]([https://arxiv.org/abs/2402.05960](https://www.researchgate.net/publication/340475482_Analysis_of_Deep_Complex-Valued_Convolutional_Neural_Networks_for_MRI_Reconstruction))
+[DEEP COMPLEX NETWORKS]([https://arxiv.org/abs/2402.05960](https://arxiv.org/pdf/1705.09792v1)
+[Phase-driven Domain Generalizable Learning for Nonstationary Time Series](https://arxiv.org/abs/2402.05960)
+[Analysis of Deep Complex-Valued Convolutional Neural Networks for MRI Reconstruction]([https://arxiv.org/abs/2402.05960](https://www.researchgate.net/publication/340475482_Analysis_of_Deep_Complex-Valued_Convolutional_Neural_Networks_for_MRI_Reconstruction))
+
 It seemed that PyTorch already handles most of the processing so only the activation functionss would need to be changed as well as manually handling real and imaginary components in certain situations.
 
 For the main Encoder & Decoder blocks, I have emperically found the following network to produce good enough results within my limited compute (A single Nvidia P40, which died somewhere in 2025 :[ )
