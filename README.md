@@ -29,13 +29,14 @@ Several modifications were proposed to enforce aligment between the real and ima
 
 
 
-Basically we just need a decoder that converts an internal representation such as Phoneme's when working with a TTS such as [StyleTTS2](https://github.com/yl4579/styletts2) or the internal latent space of a multimodal LLM, into tokens (which enables Generative AI) that can be detokenized to produce an input for the decoder.
+Basically we just need a decoder that converts an internal representation such as Phoneme's when working with a TTS such as [StyleTTS2](https://github.com/yl4579/styletts2) or the internal latent space of a multimodal LLM, into tokens that can be detokenized (which enables Generative AI) to produce an input for the decoder.
 But it should be a complex valued network so that it natively produces aligned real & imaginary numbers to drive the ISTFT waveform generator. To train this we will also need the encoder part but it is not necessary during inference, and depending on the end-to-end connection, the tokenizer might not even be necessary but in this example work the tokenizer will serve as the main bottleneck that forces the encoder & decoder to learn compression & decompression.
 
 ## Implementation
 <img width="756" height="574" alt="image" src="https://github.com/user-attachments/assets/8492ec1d-70ad-4b81-8dcb-b9eee342e652" />
 
 Digging into the research, I found several papers on complex valued neural networks: 
+
 [DEEP COMPLEX NETWORKS](https://arxiv.org/pdf/1705.09792v1)
 
 [Phase-driven Domain Generalizable Learning for Nonstationary Time Series](https://arxiv.org/abs/2402.05960)
